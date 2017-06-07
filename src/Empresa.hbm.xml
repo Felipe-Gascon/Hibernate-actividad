@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-may-2017 17:30:06 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Empresa" table="EMPRESA">
+     <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+          
+        </property>
+        <property name="direccion" type="java.lang.String">
+            <column name="DIRECCION" />
+        </property>
+        <property name="fundacion" type="int">
+            <column name="FUNDACION" />
+        </property>
+        
+        <list name="empleados" table="EMPLEADO" lazy="true" cascade="save-update" fetch="select" inverse="true">
+        	<key column="empresa_id" />
+        	<list-index></list-index>
+           	<one-to-many class="Empleado" />
+        </list>
+        
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-may-2017 18:11:01 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="Datos" table="DATOS">
+		<id name="empleadoId" type="int">
+			<column name="EMPLEADO_ID" />
+			<generator class="foreign">
+				<param name="property">empleado</param>
+			</generator>
+
+		</id>
+		<one-to-one name="empleado" class="Empleado" constrained="true"></one-to-one>
+		<property name="puesto" type="java.lang.String">
+			<column name="PUESTO" />
+
+		</property>
+		<property name="segsocial" type="java.lang.String">
+			<column name="SEGSOCIAL" />
+		</property>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-may-2017 18:10:45 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="Empleado" table="EMPLEADO">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="nombre" type="java.lang.String">
+			<column name="NOMBRE" />
+		</property>
+		<property name="edad" type="int">
+			<column name="EDAD" />
+		</property>
+
+		<many-to-one name="empresa" class="Empresa" column="empresa_id"
+			cascade="save-update"></many-to-one>
+
+		<!-- <component name="datos"> <property name="puesto" type="java.lang.String"> 
+			<column name="PUESTO" /> </property> <property name="segsocial" type="java.lang.String"> 
+			<column name="SEGSOCIAL" /> </property> </component> -->
+
+		<one-to-one name="dato" class="Datos" cascade="save-update"></one-to-one>
+
+	</class>
+</hibernate-mapping>
